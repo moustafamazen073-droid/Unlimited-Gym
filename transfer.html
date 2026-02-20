@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transfer - Unlimited Gym</title>
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <link rel="stylesheet" href="gym.css" />
+  <style>
+    .logo { content: url("https://res.cloudinary.com/dgsric2be/image/upload/v1771480891/only_logo_yz1ozh.png"); }
+  </style>
+</head>
+<body class="transfer-page">
+  <div class="transfer-container">
+    <div class="transfer-card" id="transferCard">
+      <div class="transfer-header">
+        <img src="https://res.cloudinary.com/dgsric2be/image/upload/v1771480891/only_logo_yz1ozh.png" alt="Unlimited Gym Logo" class="logo" />
+        <h1>💪 UNLIMITED GYM</h1>
+        <p class="subtitle">Membership Transfer Details</p>
+      </div>
+
+      <div class="info-box">
+        <h2>👤 Member Information</h2>
+        <div class="info-row"><span class="label">Full Name:</span><span class="value" id="displayName">-</span></div>
+        <div class="info-row"><span class="label">Phone Number:</span><span class="value" id="displayMobile">-</span></div>
+        <div class="info-row"><span class="label">Membership Plan:</span><span class="value highlight" id="displayPlan">-</span></div>
+        <div class="info-row"><span class="label">Sessions/Week:</span><span class="value highlight" id="displaySessions">-</span></div>
+        <div class="info-row total-row"><span class="label">Total Amount:</span><span class="value total" id="displayPrice">0 EGP</span></div>
+      </div>
+
+      <div class="payment-box">
+        <h2>📱 Vodafone Cash</h2>
+        <div class="number-box"><div class="big-number" id="vodafoneNumber">01018148829</div></div>
+        <div class="steps">
+          <div class="step"><span class="step-icon">1️⃣</span><span>Send amount to <span class="highlight-number">01018148829</span></span></div>
+          <div class="step"><span class="step-icon">2️⃣</span><span>Take screenshot of the transfer</span></div>
+          <div class="step"><span class="step-icon">3️⃣</span><span>Click WhatsApp button below</span></div>
+          <div class="step"><span class="step-icon">4️⃣</span><span>Send transfer screenshot + this page screenshot</span></div>
+        </div>
+      </div>
+
+      <div class="dates-box">
+        <div class="date-row"><span>📅 Request date:</span><span class="date-value" id="displayDate">-</span></div>
+        <div class="date-row deadline"><span>⏰ Transfer deadline:</span><span class="date-value" id="displayExpiry">-</span></div>
+      </div>
+
+      <div class="reminder"><p>📸 <strong>Screenshot this page</strong> and send it with your transfer screenshot</p></div>
+
+      <div class="transfer-footer">
+        <p>Unlimited Gym - Alexandria</p>
+        <p>📍 11 Cafr sakr set campsezar</p>
+        <p>📞 03 5913737</p>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button class="btn btn-whatsapp" id="whatsappBtn"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" /> Send via WhatsApp</button>
+      <button class="btn btn-download" id="downloadBtn">📸 Download Screenshot</button>
+      <a href="subscription-form.html" class="btn btn-back">← Back to Form</a>
+    </div>
+
+    <div class="note">
+      <p>⚠️ Keep this page open until you complete the transfer</p>
+      <p>✅ Membership activated within 24 hours after payment confirmation</p>
+    </div>
+
+    <div class="text-center">
+      <a href="index.html" class="text-warning text-decoration-none btn btn-back">← Back to Home</a>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="gym.js"></script>
+</body>
+</html>
