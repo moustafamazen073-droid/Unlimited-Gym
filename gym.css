@@ -290,6 +290,29 @@ img.loaded {
   transform: scale(1.02);
 }
 
+.intro{
+  color: var(--primary);
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.intro p {
+  margin: 0;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* font-family: "JetBrains Mono", "Fira Code", Consolas, monospace; */
+  font-size: larger;
+}
+
+@media (max-width: 480px) {
+  .intro {
+    font-size: 22px;
+    padding: var(--space-md);
+  }
+}
+
 .text {
   background: linear-gradient(
     145deg,
@@ -320,6 +343,22 @@ img.loaded {
     font-size: 22px;
     padding: var(--space-md);
   }
+}
+
+/* ==============================
+   VIDEO SECTION
+============================== */
+.video-container {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+}
+
+.video-container video {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  background: black;
 }
 
 /* ==============================
