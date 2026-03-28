@@ -179,10 +179,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function calculatePrice(plan, sessions) {
       const priceMap = {
-        monthly: { 3: 450, Everyday: 550 },
-        "3 month": { 3: 1000, Everyday: 1500 },
-        "6 month": { 3: 2000, Everyday: 2500 },
-        yearly: { 3: 3000, Everyday: 3500 },
+        monthly: { 3: 550, Everyday: 650 },
+        "3 month": { 3: 1500, Everyday: 2000 },
+        "6 month": { 3: 2500, Everyday: 3000 },
+        yearly: { 3: 4000, Everyday: 4000 },
       };
       return priceMap[plan]?.[sessions] || 0;
     }
