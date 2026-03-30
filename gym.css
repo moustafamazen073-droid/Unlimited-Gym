@@ -39,10 +39,15 @@ html {
   overflow-x: hidden;
 }
 
+/* ===== ANIMATIONS START ===== */
+/* 1. BACKGROUND ANIMATION - Animated Gradient */
 body {
   margin: 0;
   overflow-x: hidden;
-  background: linear-gradient(to left, #67540e, #000000);
+  /* Original background preserved and enhanced with animation */
+  background: linear-gradient(135deg, #000000 0%, #1a1a00 25%, #000000 50%, #1a1a00 75%, #000000 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
     sans-serif;
@@ -51,6 +56,120 @@ body {
   line-height: 1.5;
   min-height: 100vh;
 }
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 2. FADE-UP ANIMATION */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3. SLIDE-LEFT ANIMATION */
+.slide-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-left.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 4. BUTTON ANIMATIONS (Move toward center) */
+.subscribe-btn-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+}
+
+.subscribe-btn-left.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.subscribe-btn-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+}
+
+.subscribe-btn-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 5. ZOOM-IN ANIMATION for program cards */
+.zoom-in {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.zoom-in.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delays for program cards */
+.program-card {
+  transition-delay: 0s;
+}
+
+.program-card:nth-child(1) { transition-delay: 0s; }
+.program-card:nth-child(2) { transition-delay: 0.08s; }
+.program-card:nth-child(3) { transition-delay: 0.16s; }
+.program-card:nth-child(4) { transition-delay: 0.24s; }
+.program-card:nth-child(5) { transition-delay: 0.32s; }
+.program-card:nth-child(6) { transition-delay: 0.40s; }
+.program-card:nth-child(7) { transition-delay: 0.48s; }
+.program-card:nth-child(8) { transition-delay: 0.56s; }
+
+/* Ensure smooth transitions for all animated elements */
+.fade-up, .slide-left, .zoom-in, .subscribe-btn-left, .subscribe-btn-right {
+  will-change: transform, opacity;
+}
+
+/* Reduced motion preference support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  body {
+    animation: none;
+    background: linear-gradient(135deg, #000000, #1a1a00);
+  }
+  
+  .fade-up, .slide-left, .zoom-in, .subscribe-btn-left, .subscribe-btn-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+/* ===== ANIMATIONS END ===== */
 
 img {
   opacity: 1;
@@ -64,15 +183,6 @@ img.loading {
 
 img.loaded {
   opacity: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
 }
 
 /* ==============================
