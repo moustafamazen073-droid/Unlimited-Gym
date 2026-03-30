@@ -3,6 +3,45 @@
 ============================== */
 document.addEventListener("DOMContentLoaded", function () {
   
+  /* ===== INTRO SCREEN FUNCTIONALITY START ===== */
+  const introScreen = document.getElementById('introScreen');
+  const mainContent = document.getElementById('mainContent');
+  const discoverBtn = document.getElementById('discoverBtn');
+  
+  // Disable scrolling initially
+  document.body.classList.add('no-scroll');
+  
+  // Add fade-in animation to intro screen (already visible by default)
+  if (introScreen) {
+    introScreen.style.opacity = '1';
+  }
+  
+  // Handle Discover button click
+  if (discoverBtn && introScreen && mainContent) {
+    discoverBtn.addEventListener('click', function() {
+      // Fade out intro screen
+      introScreen.classList.add('fade-out');
+      
+      // Show main content after intro fade out
+      setTimeout(function() {
+        introScreen.style.display = 'none';
+        mainContent.classList.add('active');
+        
+        // Enable scrolling
+        document.body.classList.remove('no-scroll');
+        
+        // Optional: Scroll slightly down for better UX
+        setTimeout(function() {
+          window.scrollTo({
+            top: 100,
+            behavior: 'smooth'
+          });
+        }, 100);
+      }, 800);
+    });
+  }
+  /* ===== INTRO SCREEN FUNCTIONALITY END ===== */
+  
   /* ==============================
      DROPDOWN MENU FUNCTIONALITY
   ============================== */
@@ -772,65 +811,84 @@ gtag('config', 'G-HPHG3W3XD9');
 /* ===== ANIMATIONS START ===== */
 // SCROLL REVEAL ANIMATIONS - IntersectionObserver Implementation
 (function() {
-  // Configuration for IntersectionObserver
-  const animationConfig = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -30px 0px'
-  };
-  
-  // Create observer for scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-        // Unobserve after animation to improve performance
-        observer.unobserve(entry.target);
-      }
-    });
-  }, animationConfig);
-  
-  // Function to observe elements with specific animation classes
-  function observeAnimationElements(className) {
-    const elements = document.querySelectorAll('.' + className);
-    elements.forEach(element => {
-      observer.observe(element);
-    });
+  // Only run scroll animations after main content is visible
+  function initScrollAnimations() {
+    const mainContent = document.getElementById('mainContent');
+    if (mainContent && !mainContent.classList.contains('active')) {
+      // Wait for main content to become active
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.attributeName === 'class' && mainContent.classList.contains('active')) {
+            startAnimations();
+            observer.disconnect();
+          }
+        });
+      });
+      observer.observe(mainContent, { attributes: true });
+    } else {
+      startAnimations();
+    }
   }
   
-  // Observe all animation types
-  const animationClasses = ['fade-up', 'slide-left', 'zoom-in', 'subscribe-btn-left', 'subscribe-btn-right'];
-  animationClasses.forEach(className => {
-    observeAnimationElements(className);
-  });
-  
-  // Also observe program cards with zoom-in class
-  const programCards = document.querySelectorAll('.zoom-in');
-  programCards.forEach(card => {
-    observer.observe(card);
-  });
-  
-  // Handle dynamically added content
-  const mutationObserver = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-      if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-        // Re-observe all animation elements
-        animationClasses.forEach(className => {
-          const newElements = document.querySelectorAll('.' + className + ':not(.show)');
-          newElements.forEach(element => {
-            observer.observe(element);
-          });
-        });
-      }
+  function startAnimations() {
+    // Configuration for IntersectionObserver
+    const animationConfig = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -30px 0px'
+    };
+    
+    // Create observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          // Unobserve after animation to improve performance
+          observer.unobserve(entry.target);
+        }
+      });
+    }, animationConfig);
+    
+    // Function to observe elements with specific animation classes
+    function observeAnimationElements(className) {
+      const elements = document.querySelectorAll('.' + className);
+      elements.forEach(element => {
+        observer.observe(element);
+      });
+    }
+    
+    // Observe all animation types
+    const animationClasses = ['fade-up', 'slide-left', 'zoom-in', 'subscribe-btn-left', 'subscribe-btn-right'];
+    animationClasses.forEach(className => {
+      observeAnimationElements(className);
     });
-  });
-  
-  mutationObserver.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
-  
-  // Ensure all elements are checked on load
-  window.addEventListener('load', function() {
+    
+    // Also observe program cards with zoom-in class
+    const programCards = document.querySelectorAll('.zoom-in');
+    programCards.forEach(card => {
+      observer.observe(card);
+    });
+    
+    // Handle dynamically added content
+    const mutationObserver = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+          // Re-observe all animation elements
+          animationClasses.forEach(className => {
+            const newElements = document.querySelectorAll('.' + className + ':not(.show)');
+            newElements.forEach(element => {
+              observer.observe(element);
+            });
+          });
+        }
+      });
+    });
+    
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+    
+    // Ensure all elements are checked on load
     setTimeout(() => {
       animationClasses.forEach(className => {
         const elements = document.querySelectorAll('.' + className + ':not(.show)');
@@ -845,6 +903,9 @@ gtag('config', 'G-HPHG3W3XD9');
         });
       });
     }, 100);
-  });
+  }
+  
+  // Initialize scroll animations
+  initScrollAnimations();
 })();
 /* ===== ANIMATIONS END ===== */
