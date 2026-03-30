@@ -701,6 +701,7 @@ if (logoLink) {
   });
 }
 });
+
 /* ==============================
    FIX FOR LIVE SERVER - SCROLL TO SECTION
 ============================== */
@@ -767,3 +768,83 @@ gtag('config', 'G-HPHG3W3XD9');
     t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "w2fnvxst5d");
+
+/* ===== ANIMATIONS START ===== */
+// SCROLL REVEAL ANIMATIONS - IntersectionObserver Implementation
+(function() {
+  // Configuration for IntersectionObserver
+  const animationConfig = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -30px 0px'
+  };
+  
+  // Create observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        // Unobserve after animation to improve performance
+        observer.unobserve(entry.target);
+      }
+    });
+  }, animationConfig);
+  
+  // Function to observe elements with specific animation classes
+  function observeAnimationElements(className) {
+    const elements = document.querySelectorAll('.' + className);
+    elements.forEach(element => {
+      observer.observe(element);
+    });
+  }
+  
+  // Observe all animation types
+  const animationClasses = ['fade-up', 'slide-left', 'zoom-in', 'subscribe-btn-left', 'subscribe-btn-right'];
+  animationClasses.forEach(className => {
+    observeAnimationElements(className);
+  });
+  
+  // Also observe program cards with zoom-in class
+  const programCards = document.querySelectorAll('.zoom-in');
+  programCards.forEach(card => {
+    observer.observe(card);
+  });
+  
+  // Handle dynamically added content
+  const mutationObserver = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+        // Re-observe all animation elements
+        animationClasses.forEach(className => {
+          const newElements = document.querySelectorAll('.' + className + ':not(.show)');
+          newElements.forEach(element => {
+            observer.observe(element);
+          });
+        });
+      }
+    });
+  });
+  
+  mutationObserver.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+  
+  // Ensure all elements are checked on load
+  window.addEventListener('load', function() {
+    setTimeout(() => {
+      animationClasses.forEach(className => {
+        const elements = document.querySelectorAll('.' + className + ':not(.show)');
+        elements.forEach(element => {
+          // Check if element is already visible
+          const rect = element.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 100) {
+            element.classList.add('show');
+          } else {
+            observer.observe(element);
+          }
+        });
+      });
+    }, 100);
+  });
+})();
+/* ===== ANIMATIONS END ===== */
