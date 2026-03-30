@@ -28,168 +28,175 @@
   <link rel="stylesheet" href="gym.css" />
 </head>
 <body>
-  <!-- ==============================
-       HEADER SECTION
-  ============================== -->
-  <header class="site-header">
-    <div class="logo-container">
-      <a href="/#home">
-        <img src="https://res.cloudinary.com/dgsric2be/image/upload/w_300,q_auto,f_auto/v1771480891/only_logo_yz1ozh.png" alt="Unlimited Gym Logo" width="100" height="auto" loading="eager" />
-      </a>
-    </div>
-    <div class="dropdown">
-      <button class="menu-btn dropdown-toggle" type="button" id="menuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="bi bi-list"></i> Menu
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuDropdown">
-        <li><a class="dropdown-item" href="#" onclick="navigateToSection('home'); return false;">🏠 HOME</a></li>
-        <li><a class="dropdown-item" href="#" onclick="navigateToSection('about'); return false;">📋 ABOUT US</a></li>
-        <li><a class="dropdown-item" href="#" onclick="navigateToSection('tpp'); return false;">📅 TIMETABLE / PLANS</a></li>
-        <li><a class="dropdown-item" href="#" onclick="navigateToSection('subscribe'); return false;">💪 MEMBERSHIP</a></li>
-        <li><a class="dropdown-item" href="#" onclick="navigateToSection('private'); return false;">👤 PRIVATE COACH</a></li>
-        <li><a class="dropdown-item" href="#" onclick="navigateToSection('programs'); return false;">🏋️ OUR PROGRAMS</a></li>
-        <li><hr class="dropdown-divider" style="border-color: #fecf2a" /></li>
-        <li><a class="dropdown-item" href="subscription-form.html">📝 SUBSCRIPTION FORM</a></li>
-        <li><a class="dropdown-item" href="transfer.html">💰 TRANSFER</a></li>
-      </ul>
-    </div>
-  </header>
-  <div class="dropdown-overlay" id="dropdownOverlay"></div>
-
-  <!-- ==============================
-       WHATSAPP FLOATING BUTTON
-  ============================== -->
-  <a href="https://wa.me/201128200366" target="_blank" class="whatsapp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="50" height="50" loading="lazy" />
-  </a>
-
-  <!-- ==============================
-       HOME SECTION
-  ============================== -->
-  <div class="container scroll-section" id="home">
-    <!--<div class="video-container">
-    <video autoplay muted loop playsinline>
-      <source src="https://res.cloudinary.com/dgsric2be/video/upload/v1774541922/1774541628647_roluuj.mp4" type="video/mp4">
-    </video>
-  </div> -->
-    <img src="https://res.cloudinary.com/dgsric2be/image/upload/w_1200,q_auto,f_auto/v1771480885/unlimited_logo_l1amr4.jpg" alt="Unlimited Gym" class="img-fluid rounded-4" width="1200" height="auto" loading="eager" />
-    <!-- ANIMATION ADDITION: Added fade-up class -->
-    <div class="intro fade-up">
-     
-      <p>unlimited gym</p>
-      <p>unlimited power</p>
+  <!-- ===== INTRO SCREEN START ===== -->
+  <div class="intro-screen" id="introScreen">
+    <div class="intro-screen-content">
+      <img src="https://res.cloudinary.com/dgsric2be/image/upload/w_1200,q_auto,f_auto/v1771480885/unlimited_logo_l1amr4.jpg" alt="Unlimited Gym" class="intro-screen-image" />
+      <div class="intro-screen-text">
+        <p>unlimited gym</p>
+        <p>unlimited power</p>
+      </div>
+      <button class="discover-btn" id="discoverBtn">Discover More</button>
     </div>
   </div>
+  <!-- ===== INTRO SCREEN END ===== -->
 
-  <!-- ==============================
-       ABOUT SECTION
-  ============================== -->
-  <!-- ANIMATION ADDITION: Added fade-up class -->
-  <div class="about scroll-section fade-up" id="about">
-    <div class="container">
-      <h1>About Us</h1>
-      <p class="text-center fs-2">Welcome to Unlimited Gym – Alexandria</p>
-      <div class="about-content">
-        <p>Most gyms are just places with machines and weights, but Unlimited Gym is truly different. While other gyms focus only on routines and schedules, we focus on creating a community where passion, dedication, and achievement come together. Here, you don't just train—you grow, you learn, and you become part of something bigger.</p>
-        <p>Our gym stands out for its inspiring environment, expert coaching, and state-of-the-art facilities, making every workout meaningful and every goal achievable.</p>
-        <h2>Our Story</h2>
-        <p>Unlimited Gym started as a simple, empty space, nothing more than four walls. It was in this very space that Ahmed Abdel-Moneim, the youngest of Ibrahim Abdel-Moneim's sons, began training alone. With dedication, consistency, and a love for the sport, Ahmed achieved what many only dream of — he became a World Karate Champion.</p>
-        <p>Inspired by Ahmed's incredible journey, Ibrahim and his sons Islam, Ahmed, and Mohamed decided to transform this empty space into Unlimited Gym, a place where talent, discipline, and ambition meet opportunity. Over the years, we have welcomed many world-class champions and elite athletes, creating a hub where champions train, mentor others, and inspire the next generation.</p>
-        <p>On another front, we have expanded our horizons to host prominent figures from around the world. Over many long years, our facility has welcomed contestants of the Miss Eco International pageant, arriving from dozens of different countries. This makes our institution a unique place that not only celebrates and nurtures exceptional athletic talent but also honors diverse forms of excellence on a global level.</p>
-        <h2>Why Unlimited Gym is Different</h2>
-        <ul>
-          <li><strong>Professional Coaching for Every Level:</strong> Whether you're a beginner or an elite athlete, our certified trainers guide you through every step of your journey.</li>
-          <li><strong>Inspiring Champion Community:</strong> Train alongside world-class athletes and champions who motivate and push you to achieve your personal best.</li>
-          <li><strong>State-of-the-Art Facilities:</strong> Our gym is equipped with modern machines, free weights, and training areas designed for effective and safe workouts.</li>
-          <li><strong>Personalized Training Plans:</strong> Every member receives guidance tailored to their goals, abilities, and aspirations.</li>
-          <li><strong>A Place Where Stories Begin:</strong> Many champions started here, and many more will continue to grow. From local talent to world-class athletes, Unlimited Gym is where hard work turns into success.</li>
+  <!-- ===== MAIN CONTENT START (hidden initially) ===== -->
+  <div class="main-content" id="mainContent">
+    <!-- ==============================
+         HEADER SECTION
+    ============================== -->
+    <header class="site-header">
+      <div class="logo-container">
+        <a href="/#home">
+          <img src="https://res.cloudinary.com/dgsric2be/image/upload/w_300,q_auto,f_auto/v1771480891/only_logo_yz1ozh.png" alt="Unlimited Gym Logo" width="100" height="auto" loading="eager" />
+        </a>
+      </div>
+      <div class="dropdown">
+        <button class="menu-btn dropdown-toggle" type="button" id="menuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-list"></i> Menu
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuDropdown">
+          <li><a class="dropdown-item" href="#" onclick="navigateToSection('home'); return false;">🏠 HOME</a></li>
+          <li><a class="dropdown-item" href="#" onclick="navigateToSection('about'); return false;">📋 ABOUT US</a></li>
+          <li><a class="dropdown-item" href="#" onclick="navigateToSection('tpp'); return false;">📅 TIMETABLE / PLANS</a></li>
+          <li><a class="dropdown-item" href="#" onclick="navigateToSection('subscribe'); return false;">💪 MEMBERSHIP</a></li>
+          <li><a class="dropdown-item" href="#" onclick="navigateToSection('private'); return false;">👤 PRIVATE COACH</a></li>
+          <li><a class="dropdown-item" href="#" onclick="navigateToSection('programs'); return false;">🏋️ OUR PROGRAMS</a></li>
+          <li><hr class="dropdown-divider" style="border-color: #fecf2a" /></li>
+          <li><a class="dropdown-item" href="subscription-form.html">📝 SUBSCRIPTION FORM</a></li>
+          <li><a class="dropdown-item" href="transfer.html">💰 TRANSFER</a></li>
         </ul>
-        <h2>Join the Journey</h2>
-        <p>At Unlimited Gym, we don't just build muscles—we build champions, confidence, and lifelong discipline. This is a place where dreams are realized, records are broken, and every member is inspired to push beyond limits.</p>
-        <p>Come and be part of our story. Train, learn, and grow with Unlimited Gym – Alexandria, where dedication meets achievement, and where every day is a chance to become better than yesterday.</p>
+      </div>
+    </header>
+    <div class="dropdown-overlay" id="dropdownOverlay"></div>
+
+    <!-- ==============================
+         WHATSAPP FLOATING BUTTON
+    ============================== -->
+    <a href="https://wa.me/201128200366" target="_blank" class="whatsapp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="50" height="50" loading="lazy" />
+    </a>
+
+    <!-- ==============================
+         HOME SECTION
+    ============================== -->
+    <div class="container scroll-section" id="home">
+      <!--<div class="video-container">
+      <video autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/dgsric2be/video/upload/v1774541922/1774541628647_roluuj.mp4" type="video/mp4">
+      </video>
+    </div> -->
+      <img src="https://res.cloudinary.com/dgsric2be/image/upload/w_1200,q_auto,f_auto/v1771480885/unlimited_logo_l1amr4.jpg" alt="Unlimited Gym" class="img-fluid rounded-4" width="1200" height="auto" loading="eager" />
+      <div class="intro fade-up">
+        <p>unlimited gym</p>
+        <p>unlimited power</p>
       </div>
     </div>
-  </div>
 
-  <!-- ==============================
-       TIMETABLE & PRICING SECTION
-  ============================== -->
-  <div class="content scroll-section" id="tpp">
-    <div class="container">
-      <!-- ANIMATION ADDITION: Added slide-left class for pricing tables -->
-      <div class="timetable slide-left">
-          <h1>TIMETABLE</h1>
-          <div class="image-container">
-            <img src="https://res.cloudinary.com/dgsric2be/image/upload/v1774477135/1774476060344_p24gjd.jpg" alt="Timetable" class="img-fluid" width="800" height="auto" loading="lazy" />
+    <!-- ==============================
+         ABOUT SECTION
+    ============================== -->
+    <div class="about scroll-section fade-up" id="about">
+      <div class="container">
+        <h1>About Us</h1>
+        <p class="text-center fs-2">Welcome to Unlimited Gym – Alexandria</p>
+        <div class="about-content">
+          <p>Most gyms are just places with machines and weights, but Unlimited Gym is truly different. While other gyms focus only on routines and schedules, we focus on creating a community where passion, dedication, and achievement come together. Here, you don't just train—you grow, you learn, and you become part of something bigger.</p>
+          <p>Our gym stands out for its inspiring environment, expert coaching, and state-of-the-art facilities, making every workout meaningful and every goal achievable.</p>
+          <h2>Our Story</h2>
+          <p>Unlimited Gym started as a simple, empty space, nothing more than four walls. It was in this very space that Ahmed Abdel-Moneim, the youngest of Ibrahim Abdel-Moneim's sons, began training alone. With dedication, consistency, and a love for the sport, Ahmed achieved what many only dream of — he became a World Karate Champion.</p>
+          <p>Inspired by Ahmed's incredible journey, Ibrahim and his sons Islam, Ahmed, and Mohamed decided to transform this empty space into Unlimited Gym, a place where talent, discipline, and ambition meet opportunity. Over the years, we have welcomed many world-class champions and elite athletes, creating a hub where champions train, mentor others, and inspire the next generation.</p>
+          <p>On another front, we have expanded our horizons to host prominent figures from around the world. Over many long years, our facility has welcomed contestants of the Miss Eco International pageant, arriving from dozens of different countries. This makes our institution a unique place that not only celebrates and nurtures exceptional athletic talent but also honors diverse forms of excellence on a global level.</p>
+          <h2>Why Unlimited Gym is Different</h2>
+          <ul>
+            <li><strong>Professional Coaching for Every Level:</strong> Whether you're a beginner or an elite athlete, our certified trainers guide you through every step of your journey.</li>
+            <li><strong>Inspiring Champion Community:</strong> Train alongside world-class athletes and champions who motivate and push you to achieve your personal best.</li>
+            <li><strong>State-of-the-Art Facilities:</strong> Our gym is equipped with modern machines, free weights, and training areas designed for effective and safe workouts.</li>
+            <li><strong>Personalized Training Plans:</strong> Every member receives guidance tailored to their goals, abilities, and aspirations.</li>
+            <li><strong>A Place Where Stories Begin:</strong> Many champions started here, and many more will continue to grow. From local talent to world-class athletes, Unlimited Gym is where hard work turns into success.</li>
+          </ul>
+          <h2>Join the Journey</h2>
+          <p>At Unlimited Gym, we don't just build muscles—we build champions, confidence, and lifelong discipline. This is a place where dreams are realized, records are broken, and every member is inspired to push beyond limits.</p>
+          <p>Come and be part of our story. Train, learn, and grow with Unlimited Gym – Alexandria, where dedication meets achievement, and where every day is a chance to become better than yesterday.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==============================
+         TIMETABLE & PRICING SECTION
+    ============================== -->
+    <div class="content scroll-section" id="tpp">
+      <div class="container">
+        <div class="timetable slide-left">
+            <h1>TIMETABLE</h1>
+            <div class="image-container">
+              <img src="https://res.cloudinary.com/dgsric2be/image/upload/v1774477135/1774476060344_p24gjd.jpg" alt="Timetable" class="img-fluid" width="800" height="auto" loading="lazy" />
+            </div>
+          </div>
+          <div class="timetable scroll-section slide-left" id="subscribe">
+            <h1>PLANS & PRICES</h1>
+            <div class="image-container">
+              <img src="https://res.cloudinary.com/dgsric2be/image/upload/v1774477135/1774476135861_qqhybx.jpg" alt="Prices" class="img-fluid" width="800" height="auto" loading="lazy" />
+            </div>
+            <h2>>>>>>>>>Try one session for 100 EGP</h2>
+          </div>
+          <div class="timetable scroll-section slide-left" id="private">
+            <h1>PRIVATE COACH</h1>
+            <div class="image-container">
+              <img src="https://res.cloudinary.com/dgsric2be/image/upload/v1774477135/1774476180117_id2a8t.jpg" alt="Private Coach" class="img-fluid" width="800" height="auto" loading="lazy" />
+            </div>
           </div>
         </div>
-        <!-- ANIMATION ADDITION: Added slide-left class for pricing tables -->
-        <div class="timetable scroll-section slide-left" id="subscribe">
-          <h1>PLANS & PRICES</h1>
-          <div class="image-container">
-            <img src="https://res.cloudinary.com/dgsric2be/image/upload/v1774477135/1774476135861_qqhybx.jpg" alt="Prices" class="img-fluid" width="800" height="auto" loading="lazy" />
-          </div>
-          <h2>>>>>>>>>Try one session for 100 EGP</h2>
-        </div>
-        <!-- ANIMATION ADDITION: Added slide-left class for private training section -->
-        <div class="timetable scroll-section slide-left" id="private">
-          <h1>PRIVATE COACH</h1>
-          <div class="image-container">
-            <img src="https://res.cloudinary.com/dgsric2be/image/upload/v1774477135/1774476180117_id2a8t.jpg" alt="Private Coach" class="img-fluid" width="800" height="auto" loading="lazy" />
-          </div>
+        <div class="subscribe">
+          <a href="subscription-form.html" class="subscribe-btn-left">
+            <button class="s1btn"><h1 class="mb-0">JOIN NOW 🔥 🔥</h1></button>
+          </a>
+          <h2 class="mx-3">or</h2>
+          <a href="#home" class="subscribe-btn-right">
+            <button class="s2btn"><h1 class="mb-0">STAY THE SAME😒</h1></button>
+          </a>
         </div>
       </div>
-      <div class="subscribe">
-        <!-- ANIMATION ADDITION: Added subscribe-btn-left class for left button animation -->
-        <a href="subscription-form.html" class="subscribe-btn-left">
-          <button class="s1btn"><h1 class="mb-0">JOIN NOW 🔥 🔥</h1></button>
-        </a>
-        <h2 class="mx-3">or</h2>
-        <!-- ANIMATION ADDITION: Added subscribe-btn-right class for right button animation -->
-        <a href="#home" class="subscribe-btn-right">
-          <button class="s2btn"><h1 class="mb-0">STAY THE SAME😒</h1></button>
-        </a>
-      </div>
     </div>
-  </div>
 
-  <!-- ==============================
-       PROGRAMS SECTION
-  ============================== -->
-  <!-- ANIMATION ADDITION: Added fade-up class -->
-  <div class="content programs scroll-section fade-up" id="programs">
-    <div class="container">
-      <h1>Our Programs</h1>
-      <p>Click on any program to view details...</p>
-      <div class="row g-4">
-        <!-- ANIMATION ADDITION: Added zoom-in and program-card classes for stagger effect -->
-        <div class="col-lg-4 col-md-6 zoom-in program-card"><a href="programs/ppl.html" class="pbtn w-100 text-decoration-none">Push Pull Legs</a></div>
-        <div class="col-lg-4 col-md-6 zoom-in program-card"><a href="programs/arnold_split.html" class="pbtn w-100 text-decoration-none">Arnold Split</a></div>
-        <div class="col-lg-4 col-md-6 zoom-in program-card"><a href="programs/bro_split.html" class="pbtn w-100 text-decoration-none">Bro Split</a></div>
-        <div class="col-lg-4 col-md-6 zoom-in program-card"><a href="programs/full_body_workout.html" class="pbtn w-100 text-decoration-none">Full Body Workout</a></div>
-        <div class="col-lg-4 col-md-6 zoom-in program-card"><a href="programs/upper_lower_split.html" class="pbtn w-100 text-decoration-none">Upper / Lower Split</a></div>
-        <div class="col-lg-4 col-md-6 zoom-in program-card"><a href="programs/fat_loss_and_conditioning_system.html" class="pbtn w-100 text-decoration-none">Fat Loss & Conditioning System</a></div>
-        <div class="col-lg-4 col-md-6 zoom-in program-card"><a href="programs/functional_training_system.html" class="pbtn w-100 text-decoration-none">Functional Training System</a></div>
-        <div class="col-lg-4 col-md-6 zoom-in program-card"><a href="programs/strength_training_system.html" class="pbtn w-100 text-decoration-none">Strength Training System</a></div>
+    <!-- ==============================
+         PROGRAMS SECTION
+    ============================== -->
+    <div class="content programs scroll-section fade-up" id="programs">
+      <div class="container">
+        <h1>Our Programs</h1>
+        <p>Click on any program to view details...</p>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6 zoom-in program-card"><a href="programs/ppl.html" class="pbtn w-100 text-decoration-none">Push Pull Legs</a></div>
+          <div class="col-lg-4 col-md-6 zoom-in program-card"><a href="programs/arnold_split.html" class="pbtn w-100 text-decoration-none">Arnold Split</a></div>
+          <div class="col-lg-4 col-md-6 zoom-in program-card"><a href="programs/bro_split.html" class="pbtn w-100 text-decoration-none">Bro Split</a></div>
+          <div class="col-lg-4 col-md-6 zoom-in program-card"><a href="programs/full_body_workout.html" class="pbtn w-100 text-decoration-none">Full Body Workout</a></div>
+          <div class="col-lg-4 col-md-6 zoom-in program-card"><a href="programs/upper_lower_split.html" class="pbtn w-100 text-decoration-none">Upper / Lower Split</a></div>
+          <div class="col-lg-4 col-md-6 zoom-in program-card"><a href="programs/fat_loss_and_conditioning_system.html" class="pbtn w-100 text-decoration-none">Fat Loss & Conditioning System</a></div>
+          <div class="col-lg-4 col-md-6 zoom-in program-card"><a href="programs/functional_training_system.html" class="pbtn w-100 text-decoration-none">Functional Training System</a></div>
+          <div class="col-lg-4 col-md-6 zoom-in program-card"><a href="programs/strength_training_system.html" class="pbtn w-100 text-decoration-none">Strength Training System</a></div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- ==============================
-       FOOTER SECTION
-  ============================== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="social-links">
-        <a href="https://wa.me/201128200366" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="25" height="25" loading="lazy" /></a>
-        <a href="https://www.facebook.com/share/1CrLCPqPen/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/en/0/04/Facebook_f_logo_(2021).svg" alt="Facebook" width="25" height="25" loading="lazy" /></a>
-        <a href="https://www.instagram.com/unlimitedpowergym?igsh=YzF3d3o2b2drd2Mx" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="25" height="25" loading="lazy" /></a>
+    <!-- ==============================
+         FOOTER SECTION
+    ============================== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="social-links">
+          <a href="https://wa.me/201128200366" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="25" height="25" loading="lazy" /></a>
+          <a href="https://www.facebook.com/share/1CrLCPqPen/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/en/0/04/Facebook_f_logo_(2021).svg" alt="Facebook" width="25" height="25" loading="lazy" /></a>
+          <a href="https://www.instagram.com/unlimitedpowergym?igsh=YzF3d3o2b2drd2Mx" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="25" height="25" loading="lazy" /></a>
+        </div>
+        <p class="mt-2">☎️ 03 5913737</p>
+        <p>© 2026 Unlimited Gym | Alexandria, Egypt</p>
+        <p>Designed & Developed by <span class="dev">Mazen Moustafa</span></p>
       </div>
-      <p class="mt-2">☎️ 03 5913737</p>
-      <p>© 2026 Unlimited Gym | Alexandria, Egypt</p>
-      <p>Designed & Developed by <span class="dev">Mazen Moustafa</span></p>
-    </div>
-  </footer>
+    </footer>
+  </div>
+  <!-- ===== MAIN CONTENT END ===== -->
 
   <!-- ==============================
        SCRIPTS
