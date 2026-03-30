@@ -39,12 +39,145 @@ html {
   overflow-x: hidden;
 }
 
+/* ===== INTRO SCREEN START ===== */
+/* Intro Screen Styles */
+.intro-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #000000 0%, #1a1a00 25%, #000000 50%, #1a1a00 75%, #000000 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+
+.intro-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-screen-content {
+  text-align: center;
+  padding: 20px;
+  animation: introFadeIn 1s ease;
+}
+
+@keyframes introFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.intro-screen-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(254, 207, 42, 0.3);
+  animation: imagePulse 2s ease infinite;
+}
+
+@keyframes imagePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 30px rgba(254, 207, 42, 0.3);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(254, 207, 42, 0.5);
+  }
+}
+
+.intro-screen-text {
+  color: var(--primary);
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.intro-screen-text p {
+  margin: 0;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: larger;
+}
+
+.discover-btn {
+  background: var(--primary);
+  color: #000000;
+  border: none;
+  border-radius: 60px;
+  padding: 15px 40px;
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(254, 207, 42, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.discover-btn:hover {
+  background: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(254, 207, 42, 0.5);
+}
+
+.discover-btn:active {
+  transform: translateY(0);
+}
+
+/* Main Content - Initially Hidden */
+.main-content {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.main-content.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Disable scrolling when intro screen is visible */
+body.no-scroll {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .intro-screen-text {
+    font-size: 22px;
+  }
+  .discover-btn {
+    padding: 12px 30px;
+    font-size: 16px;
+  }
+  .intro-screen-image {
+    max-width: 90%;
+  }
+}
+/* ===== INTRO SCREEN END ===== */
+
 /* ===== ANIMATIONS START ===== */
 /* 1. BACKGROUND ANIMATION - Animated Gradient */
 body {
   margin: 0;
   overflow-x: hidden;
-  /* Original background preserved and enhanced with animation */
   background: linear-gradient(135deg, #000000 0%, #1a1a00 25%, #000000 50%, #1a1a00 75%, #000000 100%);
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
@@ -412,7 +545,6 @@ img.loaded {
   line-height: 1.2;
   text-transform: uppercase;
   letter-spacing: 2px;
-  /* font-family: "JetBrains Mono", "Fira Code", Consolas, monospace; */
   font-size: larger;
 }
 
